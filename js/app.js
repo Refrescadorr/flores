@@ -53,24 +53,11 @@ class CamelliaApp {
     }
 
     initEvents() {
-        this.lastTouch = 0;
-
-        this.canvas.addEventListener('click', (e) => {
-            // en móvil el navegador dispara click justo después de touchstart,
-            // así que lo ignoramos si ya lo manejamos con touch
-            if (Date.now() - this.lastTouch < 400) return;
+        // pointerdown 
+        this.canvas.addEventListener('pointerdown', (e) => {
             if (e.target.closest('.app-header') || e.target.closest('.modal-card')) return;
             this.handlePointerClick(e.clientX, e.clientY);
         });
-
-        this.canvas.addEventListener('touchstart', (e) => {
-            if (e.touches.length > 0) {
-                const touch = e.touches[0];
-                if (e.target.closest('.app-header') || e.target.closest('.modal-card')) return;
-                this.lastTouch = Date.now();
-                this.handlePointerClick(touch.clientX, touch.clientY);
-            }
-        }, { passive: true });
     }
 
     handlePointerClick(x, y) {
