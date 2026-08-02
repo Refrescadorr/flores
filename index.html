@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jardín de Camelias</title>
+    <meta name="description" content="Flores 🌸🌺">
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Canvas de arte botánico -->
+    <canvas id="gardenCanvas"></canvas>
+
+    <!-- Barra Superior: Estilo Editorial Humano & Cálido -->
+    <header class="app-header">
+        <div class="brand">
+            <h1 class="brand-title">Jardín de <em>Camelias</em></h1>
+        </div>
+
+        <nav class="action-bar">
+            <button id="resetBtn" class="nav-btn" title="Sembrar nueva planta">
+                <span class="nav-icon">🌱</span>
+                <span class="btn-text">Nacer</span>
+            </button>
+
+            <button id="encyclopediaBtn" class="nav-btn" title="Ver variedades">
+                <span class="nav-icon">📖</span>
+                <span class="btn-text">Variedades</span>
+            </button>
+
+            <button id="downloadBtn" class="nav-btn" title="Guardar imagen">
+                <span class="nav-icon">📷</span>
+                <span class="btn-text">Guardar</span>
+            </button>
+
+
+
+            <button id="soundBtn" class="nav-btn nav-icon-only" title="Música de Beethoven">
+                <span id="soundIcon">🎵</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Modal Enciclopedia Botánica -->
+    <div id="encyclopediaModal" class="modal-backdrop hidden">
+        <div class="modal-card modal-large">
+            <button id="closeEncyclopediaBtn" class="close-btn" aria-label="Cerrar bitácora">✕</button>
+
+            <header class="modal-header">
+                <span class="sub-caption">Bitácora de campo</span>
+                <h2 class="modal-title">Enciclopedia Botánica de Camelias</h2>
+                <p class="modal-desc">Especies y variedades reales de <em>Camellia</em></p>
+            </header>
+
+            <div class="encyclopedia-grid">
+
+                <div class="species-entry featured-entry">
+                    <canvas class="species-canvas" data-species="golden" width="110" height="110"></canvas>
+                    <div class="entry-body">
+                        <p class="entry-label">Especie silvestre</p>
+                        <h3 class="entry-name">Camelia Chrysantha <em>(Dorada)</em></h3>
+                        <p class="entry-desc">Considerada el "Santo Grial" de los botánicos. Una mítica especie
+                            silvestre de flores amarillo mantequilla descubierta en bosques orientales húmedos.</p>
+                    </div>
+                </div>
+
+                <div class="species-entry">
+                    <canvas class="species-canvas" data-species="ruby" width="110" height="110"></canvas>
+                    <div class="entry-body">
+                        <p class="entry-label">Popular en primavera</p>
+                        <h3 class="entry-name">Camelia Ruby <em>(Peonía)</em></h3>
+                        <p class="entry-desc">Famosa variedad de primavera que produce exuberantes flores dobles en un
+                            tono rubí profundo deslumbrante, recordando la majestuosidad de la peonía.</p>
+                    </div>
+                </div>
+
+                <div class="species-entry">
+                    <canvas class="species-canvas" data-species="burgundy" width="110" height="110"></canvas>
+                    <div class="entry-body">
+                        <h3 class="entry-name">Borgoña <em>'Black Magic'</em></h3>
+                        <p class="entry-desc">De matiz rojo vinotinto tan profundo y aterciopelado que roza el negro
+                            nocturno. Crea un contraste deslumbrante con su centro de estambres dorados.</p>
+                    </div>
+                </div>
+
+                <div class="species-entry">
+                    <canvas class="species-canvas" data-species="variegated_red_white" width="110"
+                        height="110"></canvas>
+                    <div class="entry-body">
+                        <h3 class="entry-name">Jaspeada <em>Carmín y Blanco</em></h3>
+                        <p class="entry-desc">Variedad bicolor Peppermint caracterizada por franjas y salpicaduras
+                            artesanales de rojo carmesí vivo sobre un fondo blanco marfil.</p>
+                    </div>
+                </div>
+
+                <div class="species-entry">
+                    <canvas class="species-canvas" data-species="variegated_pink_white" width="110"
+                        height="110"></canvas>
+                    <div class="entry-body">
+                        <h3 class="entry-name">Jaspeada <em>Rosa y Nácar</em></h3>
+                        <p class="entry-desc">Elegante floración dulce de pétalos rosa pastel ribeteados finamente en el
+                            contorno exterior con un resplandor aperlado nácar.</p>
+                    </div>
+                </div>
+
+                <div class="species-entry">
+                    <canvas class="species-canvas" data-species="pink" width="110" height="110"></canvas>
+                    <div class="entry-body">
+                        <h3 class="entry-name">Rosa <em>Clásico Japonica</em></h3>
+                        <p class="entry-desc">La figura emblemática de los jardines orientales tradicionales. Pétalos
+                            simétricos en superposición concéntrica de tono rosa rubí.</p>
+                    </div>
+                </div>
+
+                <div class="species-entry">
+                    <canvas class="species-canvas" data-species="white" width="110" height="110"></canvas>
+                    <div class="entry-body">
+                        <h3 class="entry-name">Blanco <em>Marfil</em></h3>
+                        <p class="entry-desc">Símbolo botánico de la serenidad y la pureza. Pétalos de albura impecable
+                            con corona central de anteras doradas.</p>
+                    </div>
+                </div>
+
+                <div class="species-entry">
+                    <canvas class="species-canvas" data-species="crimson" width="110" height="110"></canvas>
+                    <div class="entry-body">
+                        <h3 class="entry-name">Rojo <em>Carmín</em></h3>
+                        <p class="entry-desc">Variedad Rubra de pigmentación vibrante y cálida. Sus pétalos rojos
+                            escarlata atraen la luz y la brisa marina.</p>
+                    </div>
+                </div>
+
+                <div class="species-entry">
+                    <canvas class="species-canvas" data-species="peach" width="110" height="110"></canvas>
+                    <div class="entry-body">
+                        <h3 class="entry-name">Durazno <em>Coral</em></h3>
+                        <p class="entry-desc">Una matización suave y exótica de tonos durazno y coral atardecer, suave
+                            al tacto e ideal para floraciones primaverales.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+
+    <script src="js/particles.js"></script>
+    <script src="js/camellia.js"></script>
+    <script src="js/branch.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
